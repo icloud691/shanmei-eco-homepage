@@ -193,6 +193,8 @@ const consultNote = '可先电话沟通企业现状、增长诉求与合作方�
 const heroBridgeText = '围绕经营诊断、协同增长与生态连接，快速完成首轮判断。';
 const advisorWelcomeText = '你好，我是善美生态的 AI 共创顾问知予。';
 const footerPositioning = '面向企业决策者的增长诊断、协同推进与生态合作平台。';
+const staticBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+const withStaticBasePath = (path: string) => `${staticBasePath}${path}`;
 
 const heroSignals = [
   { value: '6', label: '经营痛点', note: '快速识别问题所在' },
@@ -2822,7 +2824,7 @@ export default function ShanmeiEcoHomepageV1() {
 
   return (
     <div className="sm-homepage">
-      <style>{pageStyles}</style>
+      <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: pageStyles }} />
       <div className="sm-grid-overlay" />
 
       <header className="sm-header">
@@ -2830,7 +2832,7 @@ export default function ShanmeiEcoHomepageV1() {
           <div className="sm-brand">
             <div className="sm-brand__mark">
               <Image
-                src="/assets/logo/shanmei-logo-gold.png"
+                src={withStaticBasePath('/assets/logo/shanmei-logo-gold.png')}
                 alt="善美生态 Logo"
                 fill
                 sizes="44px"
@@ -3000,7 +3002,7 @@ export default function ShanmeiEcoHomepageV1() {
                     >
                       <div className="sm-advisor-image-wrap">
                         <Image
-                          src="/assets/digital-human/zhiyu-hero.png"
+                          src={withStaticBasePath('/assets/digital-human/zhiyu-hero.png')}
                           alt="知予数字顾问主视觉"
                           fill
                           priority
@@ -3473,7 +3475,7 @@ export default function ShanmeiEcoHomepageV1() {
           <div className="sm-footer__brand">
             <div className="sm-footer__logo">
               <Image
-                src="/assets/logo/shanmei-logo-gold.png"
+                src={withStaticBasePath('/assets/logo/shanmei-logo-gold.png')}
                 alt="善美生态 Logo"
                 fill
                 sizes="58px"
@@ -3533,7 +3535,7 @@ export default function ShanmeiEcoHomepageV1() {
                 <div>
                   <span className="sm-chat-avatar">
                     <Image
-                      src="/assets/digital-human/zhiyu-avatar.png"
+                      src={withStaticBasePath('/assets/digital-human/zhiyu-avatar.png')}
                       alt="知予头像"
                       width={28}
                       height={28}
@@ -3617,7 +3619,7 @@ export default function ShanmeiEcoHomepageV1() {
         >
           <span className="sm-chat-trigger__avatar">
             <Image
-              src="/assets/digital-human/zhiyu-avatar.png"
+              src={withStaticBasePath('/assets/digital-human/zhiyu-avatar.png')}
               alt="知予顾问头像"
               fill
               sizes="44px"

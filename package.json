@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "build:pages": "NEXT_PUBLIC_BASE_PATH=/shanmei-eco-homepage DEPLOY_TARGET=gh-pages next build",
+    "start": "next start",
+    "preview:pages": "python3 -m http.server 3004 --directory out"
   },
   "dependencies": {
     "framer-motion": "^11.2.10",
