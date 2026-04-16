@@ -1,8 +1,4 @@
-const repoName = 'shanmei-eco-homepage';
-const isGithubPagesBuild =
-  process.env.DEPLOY_TARGET === 'gh-pages' || process.env.GITHUB_ACTIONS === 'true';
-const basePath =
-  process.env.NEXT_PUBLIC_BASE_PATH || (isGithubPagesBuild ? `/${repoName}` : '');
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,7 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath,
-  assetPrefix: isGithubPagesBuild ? `${basePath}/` : undefined,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
 };
 
 export default nextConfig;

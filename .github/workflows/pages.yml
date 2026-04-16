@@ -36,12 +36,12 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        env:
-          NEXT_PUBLIC_BASE_PATH: /shanmei-eco-homepage
         run: npm run build:pages
 
-      - name: Add .nojekyll
-        run: touch out/.nojekyll
+      - name: Add Pages metadata
+        run: |
+          touch out/.nojekyll
+          printf 'ai.shanmei.com\n' > out/CNAME
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
